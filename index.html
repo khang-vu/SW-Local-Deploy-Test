@@ -301,7 +301,7 @@ _flutter.buildConfig = {"engineRevision":"dd93de6fb1776398bf586cbd477deade1391c7
 
   function registerNotificationServiceWorker() {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      navigator.serviceWorker.register('/preview-flutter-pocket/firebase-messaging-sw.js')
         .then(async (registration) => {
           console.log('HDW [Main] Service Worker registration successful:', registration);
 
@@ -468,7 +468,7 @@ _flutter.buildConfig = {"engineRevision":"dd93de6fb1776398bf586cbd477deade1391c7
     }
   }
 </script>
-<script src="notification-handler.js"></script>
+<script src="preview-flutter-pocket/notification-handler.js"></script>
 
 </body>
 
