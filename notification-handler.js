@@ -2,7 +2,7 @@ function getNotificationData(payload, translationsMap) {
   let title;
   let options = {
     body: undefined,
-    icon: './icons/icon-192.png',
+    icon: './icons/Icon-192.png',
     data: payload,
   };
 
