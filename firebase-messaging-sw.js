@@ -40,7 +40,7 @@ self.addEventListener('message', function(event) {
         const notificationTitle = payload.notification?.title || 'New Message';
         const notificationOptions = {
           body: payload.notification?.body || 'You have a new message',
-          icon: '/icons/icon-192.png'
+          icon: './icons/icon-192.png'
         };
 
         console.log('HDW [firebase-messaging-sw.js] Showing notification:', notificationTitle);
@@ -61,7 +61,10 @@ self.addEventListener("notificationclick", function(event) {
   event.notification.close();
   event.waitUntil(
     clients.matchAll({ type: "window", includeUncontrolled: true }).then(clientList => {
+      console.log('HDW [firebase-messaging-sw.js] url',event)
       for (const client of clientList) {
+        console.log('HDW [firebase-messaging-sw.js] client.url ',client.url )
+
         if (client.url === event.notification.data.url && "focus" in client) {
           return client.focus();
         }

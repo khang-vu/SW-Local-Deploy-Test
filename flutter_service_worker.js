@@ -3,13 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "e157199e7e25b10c9ed7bc332d086e6d",
+const RESOURCES = {"flutter_bootstrap.js": "83691e6a59eec8285dc917d8f0ba3d6b",
 "version.json": "fd8baa31ce9c283b0d86ddd6e0e2cda5",
-"index.html": "2e8ea7081e612d2b8ad88b916dfb9ff1",
-"/": "2e8ea7081e612d2b8ad88b916dfb9ff1",
-"notification-handler.js": "737343fbc688929f57cd83cc1eb6ff07",
-"firebase-messaging-sw.js": "3ef9ef31375331bd0dfb04ac7f136651",
-"main.dart.js": "cef0d706d74e68bad5ed6dabf8e70f7e",
+"index.html": "b4e9eed02df44c441e608ff1ace2d6b6",
+"/": "b4e9eed02df44c441e608ff1ace2d6b6",
+"notification-handler.js": "3264e46382e83094a7eb6178e51a72b7",
+"firebase-messaging-sw.js": "a8c47e29ad40acf43d8c7d6bb1dc2de1",
+"main.dart.js": "e6ac46c969069fd65caa2ad642847db3",
 "flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
 "icons/favicon-16x16.png": "a65ccc742b037617acbcef69a1879b78",
 "icons/apple-touch-icon.png": "c971ee87739835e38c7bcd6ddd30e0da",

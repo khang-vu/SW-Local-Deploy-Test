@@ -3,16 +3,26 @@ function getNotificationData(payload, translationsMap) {
   let options = {
     body: undefined,
     icon: './icons/icon-192.png',
-    data: payload,
+    data: {
+      url: url,
+      payload: payload
+    },
   };
 
-  // Parse data if available
+  let url = undefined;
   let data = {};
   try {
-    data = typeof payload.data === 'string' ? JSON.parse(payload.data) : payload.data || {};
+    data = {
+      url: url,
+      payload: typeof payload.data === 'string' ? JSON.parse(payload.data) : payload.data || undefined
+    };
   } catch (e) {
-    data = {};
+    data = {
+      url: url,
+    };
   }
+
+  options.data = data;
 
   switch (payload.event) {
     case 'settings:edit':
@@ -20,18 +30,18 @@ function getNotificationData(payload, translationsMap) {
       options.body = translationsMap.swipedon_employee_approval_rejected_title || '';
 
       break;
-   case 'movement:edit':
-     if (data.reviewStatus === 'allow') {
-       title = translationsMap.swipedon_employee_approval_approved_title || '';
-       options.body = renderTemplate(translationsMap.swipedon_employee_approval_approved_message, {
-         locationName: data.locationName || '',
-         startedAt: data.startedAt || '',
-       });
-     } else {
-       title = translationsMap.swipedon_employee_approval_rejected_title || '';
-       options.body = renderTemplate(translationsMap.swipedon_employee_approval_rejected_message, data);
-     }
-     break;
+    case 'movement:edit':
+      if (data.reviewStatus === 'allow') {
+        title = translationsMap.swipedon_employee_approval_approved_title || '';
+        options.body = renderTemplate(translationsMap.swipedon_employee_approval_approved_message, {
+          locationName: data.locationName || '',
+          startedAt: data.startedAt || '',
+        });
+      } else {
+        title = translationsMap.swipedon_employee_approval_rejected_title || '';
+        options.body = renderTemplate(translationsMap.swipedon_employee_approval_rejected_message, data);
+      }
+      break;
     case 'visit:new':
       title = translationsMap.swipedon_you_have_a_visitor || '';
       if (data.companyName && data.categoryName && data.deviceName) {
