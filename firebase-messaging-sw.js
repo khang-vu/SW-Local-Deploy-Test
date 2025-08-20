@@ -63,8 +63,6 @@ self.addEventListener("notificationclick", function(event) {
     clients.matchAll({ type: "window", includeUncontrolled: true }).then(clientList => {
       console.log('HDW [firebase-messaging-sw.js] url',event)
       for (const client of clientList) {
-        console.log('HDW [firebase-messaging-sw.js] client.url ',client.url )
-
         if (client.url === event.notification.data.url && "focus" in client) {
           return client.focus();
         }

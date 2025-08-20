@@ -3,23 +3,14 @@ function getNotificationData(payload, translationsMap) {
   let options = {
     body: undefined,
     icon: './icons/icon-192.png',
-    data: {
-      url: url,
-      payload: payload
-    },
+    data: payload,
   };
 
-  let url = undefined;
-  let data = {};
+  let data;
   try {
-    data = {
-      url: url,
-      payload: typeof payload.data === 'string' ? JSON.parse(payload.data) : payload.data || undefined
-    };
+    data = typeof payload.data === 'string' ? JSON.parse(payload.data) : payload.data || {}
   } catch (e) {
-    data = {
-      url: url,
-    };
+    data = {};
   }
 
   options.data = data;
